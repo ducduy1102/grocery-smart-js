@@ -1469,6 +1469,7 @@ html.dark {
   bottom: 0;
   width: 24px;
   height: 24px;
+  object-fit: contain;
   filter: var(--menu-column-icon-color);
 }
 .menu-column__heading {
