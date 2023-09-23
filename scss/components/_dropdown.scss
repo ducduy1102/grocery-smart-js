@@ -11,11 +11,14 @@
   transition-duration: 1.5s;
 
   &__inner {
+    --inner-max-height: min(582px, 100vh - 158px);
+    --inner-padding: 30px;
+
     position: relative;
 
     // Dùng min để khi user cuộn nó chỉ cuộn trong phần làm việc của nd đg sổ xuống
-    max-height: min(582px, 100vh - 158px);
-    padding: 30px;
+    max-height: var(--inner-max-height);
+    padding: var(--inner-padding);
 
     border-radius: 20px;
     background: var(--dropdown-bg-color);
@@ -29,6 +32,17 @@
       translate: -50%;
       filter: var(--dropdown-arrow-color);
     }
+  }
+}
+
+.top-menu {
+  max-height: calc(var(--inner-max-height) - var(--inner-padding) * 2);
+
+  &__main {
+    width: 292px;
+    max-height: inherit;
+    border-right: 1px solid var(--top-menu-border-color);
+    overflow-y: auto;
   }
 }
 
@@ -57,11 +71,13 @@
 
   &__icon-2 {
     position: absolute;
+    right: 0;
+    bottom: 0;
+
     width: 24px;
     height: 24px;
     object-fit: cover;
-    right: 0;
-    bottom: 0;
+    filter: var(--menu-column-icon-color);
   }
 
   &__heading {
