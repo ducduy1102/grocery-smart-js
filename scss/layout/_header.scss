@@ -32,6 +32,16 @@
   }
 }
 
+.top-menu {
+  height: 100%;
+
+  &__main {
+    width: 292px;
+    height: 100%;
+    border-right: 1px solid var(--top-menu-border-color);
+  }
+}
+
 .navbar {
   margin-left: 144px;
 
