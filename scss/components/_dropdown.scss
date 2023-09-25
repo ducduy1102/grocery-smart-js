@@ -102,12 +102,13 @@
   }
 
   &__item {
-    &:hover .sub-menu {
+    &--active .sub-menu {
       display: grid;
     }
   }
 
   // selector >: tác động ở thẻ li trực tiếp (đứng kề nó)
+  &__item--active > &__link,
   &__item:hover > &__link {
     color: #0071dc;
     font-weight: 500;
