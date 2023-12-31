@@ -52,6 +52,10 @@
         content: none;
       }
     }
+
+    @include abstracts.breakpoint(sm) {
+      padding: 0 20px;
+    }
   }
 }
 
