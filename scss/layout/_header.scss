@@ -88,22 +88,20 @@
     @include abstracts.breakpoint(lg) {
       flex-direction: column;
       align-items: flex-start;
+
+      overflow-y: auto;
+      height: calc(100% - 26px);
     }
   }
 
   &__item {
     &:hover .dropdown {
-      // display: block;
-      visibility: visible;
-      opacity: 1;
+      display: block;
+      // visibility: visible;
+      // opacity: 1;
     }
 
     @include abstracts.breakpoint(lg) {
-      &:hover .dropdown {
-        // display: block;
-        visibility: hidden;
-        opacity: 0;
-      }
       width: 100%;
     }
   }
