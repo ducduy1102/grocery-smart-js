@@ -40,3 +40,55 @@
     margin-top: 6px;
   }
 }
+
+//Buttons
+// <button class="btn">Normal</button>
+// <button class="btn btn--text">Text</button>
+// <button class="btn btn--primary btn--disabled">Primary</button>
+// <button class="btn btn--primary" disabled>Primary</button>
+// <button class="btn btn--outline">Outline</button>
+// <button class="btn btn--rounded btn--primary">Rounded</button>
+.btn {
+  height: 46px;
+  padding: 0 20px;
+  border-radius: 6px;
+
+  background: #f8f8fb;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+  user-select: none;
+
+  + .btn {
+    margin-left: 20px;
+  }
+
+  &--text {
+    font-weight: 400;
+    color: #9e9da8;
+    background: transparent;
+  }
+
+  &--primary {
+    background: #ffb700;
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid #d2d1d6;
+  }
+
+  &--rounded {
+    border-radius: 99px;
+  }
+
+  &[disabled],
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
