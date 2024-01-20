@@ -149,7 +149,7 @@
 
       @include abstracts.screen(sm) {
         // TH iphone để ấn vào input ko bị zoom lên
-        font-size: 16px;
+        font-size: 16px !important;
       }
     }
 
