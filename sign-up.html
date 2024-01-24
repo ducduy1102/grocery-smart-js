@@ -2,9 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign up | Grocery Smart</title>
+    <title>Sign up | Grocery Mart</title>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png" />
@@ -23,30 +22,36 @@
     <!-- Scripts -->
     <script src="./assets/js/scripts.js"></script>
   </head>
+
   <body>
-    <!-- Sign Up -->
     <main class="auth">
       <!-- Auth intro -->
       <div class="auth__intro">
+        <a href="./" class="logo auth__intro-logo d-none d-md-flex">
+          <img src="./assets/icons/logo.svg" alt="grocerymart" class="logo__img" />
+          <h1 class="logo__title">grocerymart</h1>
+        </a>
         <img src="./assets/img/auth/intro.svg" alt="" class="auth__intro-img" />
         <p class="auth__intro-text">The best of luxury brand values, high quality products, and innovative services</p>
+        <button class="auth__intro-next d-none d-md-flex js-toggle" toggle-target="#auth-content">
+          <img src="./assets/img/auth/intro-arrow.svg" alt="" />
+        </button>
       </div>
 
       <!-- Auth content -->
-      <div class="auth__content">
-        <div class="auth__content__inner">
-          <!-- Logo -->
+      <div id="auth-content" class="auth__content hide">
+        <div class="auth__content-inner">
           <a href="./" class="logo">
             <img src="./assets/icons/logo.svg" alt="grocerymart" class="logo__img" />
             <h1 class="logo__title">grocerymart</h1>
           </a>
           <h1 class="auth__heading">Sign Up</h1>
           <p class="auth__desc">Let’s create your account and Shop like a pro and save money.</p>
-          <form action="" class="form auth__form">
+          <form action="./index-logined.html" class="form auth__form">
             <div class="form__group">
               <div class="form__text-input">
                 <input type="email" name="" id="" placeholder="Email" class="form__input" />
-                <img src="./assets/icons/message.svg"" alt="" class="form__input-icon" />
+                <img src="./assets/icons/message.svg" alt="" class="form__input-icon" />
               </div>
             </div>
 
@@ -60,7 +65,7 @@
             <div class="form__group">
               <div class="form__text-input">
                 <input type="password" name="" id="" placeholder="Confirm password" class="form__input" />
-                <img src="./assets/icons/lock.svg"" alt="" class="form__input-icon" />
+                <img src="./assets/icons/lock.svg" alt="" class="form__input-icon" />
               </div>
             </div>
 
@@ -75,7 +80,8 @@
             <div class="form__group auth__btn-group">
               <button class="btn btn--primary auth__btn">Sign Up</button>
               <button class="btn btn--outline auth__btn btn--no-margin">
-                <img src="./assets/icons/google.svg" alt="" class="btn__icon" /> Sign in with Gmail
+                <img src="./assets/icons/google.svg" alt="" class="btn__icon" />
+                Sign in with Gmail
               </button>
             </div>
           </form>
@@ -87,5 +93,8 @@
         </div>
       </div>
     </main>
+    <script>
+      window.dispatchEvent(new Event("template-loaded"));
+    </script>
   </body>
 </html>
