@@ -52,9 +52,18 @@ html {
 
   // Auth
   --auth-content-bg: #fff;
-  --form-placeholder-color: #d2d1d6;
 
   @include abstracts.screen(md) {
     --auth-intro-bg: #fff;
   }
+
+  // Forms
+  --form-placeholder-color: #d2d1d6;
+
+  // Product detail
+  --product-detail-bg: #fff;
+
+  // Breadcrums
+  --breadcrumbs-bg: #f6f6f6;
+  --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
 }
