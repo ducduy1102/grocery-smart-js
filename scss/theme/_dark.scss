@@ -47,7 +47,6 @@ html.dark {
   // Filter-form
   --filter-form-bg: var(--dropdown-bg-color);
   --filter-form-shadow: rgba(200, 200, 200, 0.4);
-  --filter-form-tag-bg: #171c28;
   --filter-form-arrow: var(--dropdown-arrow-color);
 
   // Auth
@@ -58,6 +57,7 @@ html.dark {
 
   // Forms
   --form-placeholder-color: #b9babe;
+  --form-tag-bg: #171c28;
 
   // Product detail
   --product-detail-bg: #292e39;
