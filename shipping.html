@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -46,19 +46,19 @@
         <!-- Breadcrumbs -->
         <div class="checkout-container">
           <ul class="breadcrumbs checkout-page__breadcrumbs">
-            <li>
+            <li class="form__option">
               <a href="./" class="breadcrumbs__link">
                 Home
                 <img src="./assets/icons/arrow-right.svg" alt="" />
               </a>
             </li>
-            <li>
+            <li class="form__option">
               <a href="./checkout.html" class="breadcrumbs__link"
                 >Checkout
                 <img src="./assets/icons/arrow-right.svg" alt="" />
               </a>
             </li>
-            <li>
+            <li class="form__option">
               <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">Shipping</a>
             </li>
           </ul>
@@ -444,8 +444,42 @@
             <div class="form__group">
               <label for="city" class="form__label form__label--small">City/District/Town</label>
               <div class="form__text-input form__text-input--small">
-                <input type="text" id="city" name="" placeholder="City/District/Town" class="form__input" />
+                <input
+                  type="text"
+                  id="city"
+                  name=""
+                  placeholder="City/District/Town"
+                  class="form__input js-toggle"
+                  toggle-target="#city-dialog"
+                />
                 <img src="./assets/icons/form-error.svg" alt="" class="form__input-icon-error" />
+                <div id="city-dialog" class="form__select-dialog hide">
+                  <div class="form__search">
+                    <input type="text" placeholder="Search" class="form__search-input" />
+                    <img src="./assets/icons/search.svg" alt="" class="form__search-icon icon" />
+                  </div>
+                  <ul class="form__options-list">
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option form__option--current">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Quang Nam</li>
+                    <li class="form__option">Binh Duong</li>
+                    <li class="form__option">Binh Dinh</li>
+                    <li class="form__option">Thanh Hoa</li>
+                    <li class="form__option">Hue</li>
+                    <li class="form__option">Bac Ninh</li>
+                    <li class="form__option">Phu Yen</li>
+                    <li class="form__option">Khanh Hoa</li>
+                    <li class="form__option">Ha Tinh</li>
+                    <li class="form__option">Nghe An</li>
+                    <li class="form__option">Ben Tre</li>
+                    <li class="form__option">Quang Ngai</li>
+                    <li class="form__option">Tay Ninh</li>
+                    <li class="form__option">Hai Phong</li>
+                    <li class="form__option">Can Tho</li>
+                    <li class="form__option">Ca Mau</li>
+                  </ul>
+                </div>
               </div>
               <p class="form__error">City/District/Town is not empty</p>
             </div>
