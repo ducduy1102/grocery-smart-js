@@ -142,13 +142,8 @@
                       </div>
                       <div class="address-card__right">
                         <div class="address-card__ctrl">
-                          <button class="address-card__ctrl-btn">
-                            <img
-                              src="./assets/icons/edit.svg"
-                              alt=""
-                              class="icon js-toggle"
-                              toggle-target="#add-new-address"
-                            />Edit
+                          <button class="address-card__ctrl-btn js-toggle" toggle-target="#add-new-address">
+                            <img src="./assets/icons/edit.svg" alt="" class="icon" />Edit
                           </button>
                         </div>
                       </div>
@@ -389,7 +384,7 @@
     </div>
 
     <!-- Modal: Adđ new shipping address -->
-    <div id="add-new-address" class="modal show" style="--content-width: 700px">
+    <div id="add-new-address" class="modal hide" style="--content-width: 700px">
       <div class="modal__content">
         <form action="" class="form">
           <h2 class="modal__heading">Add new shipping address</h2>
@@ -454,6 +449,9 @@
                 />
                 <img src="./assets/icons/form-error.svg" alt="" class="form__input-icon-error" />
                 <div id="city-dialog" class="form__select-dialog hide">
+                  <button class="form__close-dialog d-none d-sm-block js-toggle" toggle-target="#city-dialog">
+                    &times;
+                  </button>
                   <div class="form__search">
                     <input type="text" placeholder="Search" class="form__search-input" />
                     <img src="./assets/icons/search.svg" alt="" class="form__search-icon icon" />
