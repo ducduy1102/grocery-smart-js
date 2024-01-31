@@ -166,7 +166,7 @@ $error-color: #ed4337;
   // }
 
   &__dialog-heading {
-    padding: 14px;
+    padding: 20px;
     font-size: 1.8rem;
     font-weight: 500;
     text-align: center;
@@ -177,7 +177,7 @@ $error-color: #ed4337;
     position: absolute;
     right: 0;
     top: 0;
-    padding: 2px 18px;
+    padding: 8px 18px;
     opacity: 0.8;
   }
 
@@ -191,7 +191,7 @@ $error-color: #ed4337;
     border-bottom: 1px solid #d2d1d6;
 
     @include abstracts.screen(lg) {
-      height: 42px;
+      height: 48px;
     }
 
     @include abstracts.screen(sm) {
@@ -199,7 +199,7 @@ $error-color: #ed4337;
       padding: 0 14px;
       border-radius: 10px;
       border: 1px solid #d2d1d6;
-      margin: 10px 20px 0;
+      margin: 10px 30px 0;
     }
 
     &-input {
@@ -211,6 +211,10 @@ $error-color: #ed4337;
     &-icon {
       width: 16px;
       margin-left: 10px;
+
+      @include abstracts.screen(lg) {
+        width: 20px;
+      }
     }
   }
 
@@ -219,6 +223,11 @@ $error-color: #ed4337;
     flex: 1;
     overflow-y: auto;
     overscroll-behavior: contain;
+
+    // Fix trên ip nhảy bàn phím số
+    @supports (-webkit-touch-callout: none) {
+      padding-bottom: 300px;
+    }
   }
 
   &__option {
@@ -236,7 +245,8 @@ $error-color: #ed4337;
     }
 
     @include abstracts.screen(lg) {
-      padding: 14px 20px;
+      padding: 18px 30px;
+      font-size: 1.6rem;
     }
   }
 
