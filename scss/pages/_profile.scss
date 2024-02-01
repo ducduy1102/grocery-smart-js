@@ -1,3 +1,5 @@
+@use "../abstracts";
+
 .profile {
   margin-bottom: 50px;
 
@@ -76,6 +78,10 @@
       font-size: 1.5rem;
       line-height: 146.667%;
       transition: background-color 0.2s;
+
+      @include abstracts.screen(md) {
+        padding: 17px 4px;
+      }
 
       &:hover {
         background: var(--profile-sidebar-link-hover);

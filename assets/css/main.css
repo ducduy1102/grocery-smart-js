@@ -4010,7 +4010,15 @@ html.dark {
   justify-content: space-between;
   gap: 30px;
 }
+.cart-info__back-arrow {
+  position: relative;
+  top: 4px;
+  width: 50px;
+  padding-right: 20px;
+}
 .cart-info__heading {
+  display: flex;
+  align-items: center;
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 141.667%;
@@ -4533,6 +4541,11 @@ html.dark {
   line-height: 146.667%;
   transition: background-color 0.2s;
 }
+@media (max-width: 767.98px) {
+  .profile-menu__link {
+    padding: 17px 4px;
+  }
+}
 .profile-menu__link:hover {
   background: var(--profile-sidebar-link-hover);
 }
@@ -4545,6 +4558,16 @@ html.dark {
 }
 .profile__desc {
   margin-bottom: 16px;
+}
+
+.form-card__label {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+.form-card__bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */
