@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "productId": 1,
+      "img": "./assets/img/product/item-1.png",
+      "title": "Coffee Beans - Espresso Arabica and Robusta Beans",
+      "brand": "Lavazza",
+      "price": "$47.00",
+      "rating": 4.3,
+      "like": 0
+    },
+    {
+      "productId": 2,
+      "img": "./assets/img/product/item-2.png",
+      "title": "Lavazza Coffee Blends - Try the Italian Espresso",
+      "brand": "Lavazza",
+      "price": "$53.00",
+      "rating": 3.4,
+      "like": 0
+    },
+    {
+      "productId": 3,
+      "img": "./assets/img/product/item-3.png",
+      "title": "Lavazza - Caffè Espresso Black Tin - Ground coffee",
+      "brand": "Welikecoffee",
+      "price": "$99.99",
+      "rating": 5.0,
+      "like": 1
+    },
+    {
+      "productId": 4,
+      "img": "./assets/img/product/item-4.png",
+      "title": "Qualità Oro Mountain Grown - Espresso Coffee Beans",
+      "brand": "Lavazza",
+      "price": "$38.65",
+      "rating": 4.4,
+      "like": 0
+    },
+    {
+      "productId": 5,
+      "img": "./assets/img/product/item-1.png",
+      "title": "Coffee Beans - Espresso Arabica and Robusta Beans",
+      "brand": "Lavazza",
+      "price": "$47.00",
+      "rating": 4.3,
+      "like": 0
+    },
+    {
+      "productId": 6,
+      "img": "./assets/img/product/item-2.png",
+      "title": "Lavazza Coffee Blends - Try the Italian Espresso",
+      "brand": "Lavazza",
+      "price": "$53.00",
+      "rating": 3.4,
+      "like": 0
+    },
+    {
+      "productId": 7,
+      "img": "./assets/img/product/item-3.png",
+      "title": "Lavazza - Caffè Espresso Black Tin - Ground coffee",
+      "brand": "Welikecoffee",
+      "price": "$99.99",
+      "rating": 5.0,
+      "like": 0
+    },
+    {
+      "productId": 8,
+      "img": "./assets/img/product/item-4.png",
+      "title": "Qualità Oro Mountain Grown - Espresso Coffee Beans",
+      "brand": "Lavazza",
+      "price": "$38.65",
+      "rating": 4.4,
+      "like": 0
+    },
+    {
+      "productId": 9,
+      "img": "./assets/img/product/item-1.png",
+      "title": "Coffee Beans - Espresso Arabica and Robusta Beans",
+      "brand": "Lavazza",
+      "price": "$47.00",
+      "rating": 4.3,
+      "like": 0
+    },
+    {
+      "productId": 10,
+      "img": "./assets/img/product/item-2.png",
+      "title": "Lavazza Coffee Blends - Try the Italian Espresso",
+      "brand": "Lavazza",
+      "price": "$53.00",
+      "rating": 3.4,
+      "like": 0
+    }
+  ]
+}

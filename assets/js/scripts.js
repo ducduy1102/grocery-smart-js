@@ -228,3 +228,181 @@ window.addEventListener("template-loaded", () => {
 
 const isDark = localStorage.dark === "true";
 document.querySelector("html").classList.toggle("dark", isDark);
+
+// Button increament and decrement total price
+window.addEventListener("load", function () {
+  // const increment = document.querySelector(".btn-increment");
+  // const decrement = document.querySelector(".btn-decrement");
+  // const quantity = document.querySelector(".quantity");
+  // let countValue = parseInt(quantity.textContent);
+  // // let totalPrice = document.querySelector(".priceItem");
+  // let totalPrice = document.querySelector(".price");
+  // const price = parseInt(totalPrice.textContent);
+  // let priceValue = price;
+
+  // increment.addEventListener("click", () => {
+  //   let add = ++countValue;
+  //   quantity.textContent = add;
+  //   priceValue = price * add;
+  //   totalPrice.textContent = `${priceValue}.00`;
+  // });
+
+  // decrement.addEventListener("click", () => {
+  //   if (countValue <= 1) {
+  //     quantity.textContent = 1;
+  //   } else {
+  //     countValue--;
+  //     quantity.textContent = countValue;
+  //   }
+  //   console.log("count", countValue);
+  //   console.log("\n price", priceValue);
+  //   priceValue = price * countValue;
+  //   totalPrice.textContent = `${priceValue}.00`;
+  // });
+
+  const increment = document.querySelectorAll(".btn-increment");
+  const decrement = document.querySelectorAll(".btn-decrement");
+  // let totalPrice = parseFloat(document.querySelector(".price").textContent).toFixed(2);
+  for (let i = 0; i < increment.length; i++) {
+    let button = increment[i];
+    button.addEventListener("click", (e) => {
+      let buttonClick = e.target;
+      let quantity = buttonClick.parentElement.parentElement.children[1]; // quay về cha sau đó vào lại quantity
+      let countValue = parseInt(quantity.textContent);
+      const price =
+        buttonClick.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].children[0]
+          .children[0];
+      const priceValue = parseFloat(price.textContent);
+      let newPriceValue = priceValue;
+      console.log(priceValue);
+      console.log(newPriceValue);
+      console.log(countValue);
+      ++countValue;
+      quantity.textContent = countValue;
+      newPriceValue = parseFloat((priceValue * countValue) / (countValue - 1)).toFixed(2);
+      price.textContent = `${newPriceValue}`;
+      let totalPrice =
+        buttonClick.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
+          .parentElement.children[1].children[0].children[1].children[0].children[1].children[0];
+      let totalPriceValue = parseFloat(totalPrice.textContent);
+      console.log(totalPriceValue);
+      // totalPriceValue =
+    });
+  }
+
+  for (let i = 0; i < decrement.length; i++) {
+    let button = decrement[i];
+    button.addEventListener("click", (e) => {
+      let buttonClick = e.target;
+      let quantity = buttonClick.parentElement.parentElement.children[1]; // quay về cha sau đó vào lại quantity
+      // console.log(quantity);
+      let countValue = parseInt(quantity.textContent);
+      let price =
+        buttonClick.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].children[0]
+          .children[0];
+      let priceValue = parseFloat(price.textContent);
+      let newPriceValue = priceValue;
+
+      if (countValue <= 1) {
+        quantity.textContent = 1;
+        newPriceValue = parseFloat((priceValue / (countValue + 1)) * countValue).toFixed(2);
+        if (!priceValue.toString().match(".00")) price.textContent = `${priceValue}`;
+        price.textContent = `${priceValue}.00`;
+      } else {
+        --countValue;
+        quantity.textContent = countValue;
+        newPriceValue = parseFloat((priceValue / (countValue + 1)) * countValue).toFixed(2);
+        price.textContent = `${newPriceValue}`;
+      }
+    });
+  }
+});
+
+// Call API product
+window.addEventListener("load", function () {
+  const endpoint = "http://localhost:3456/products";
+  const productList = document.querySelector(".product-list");
+  console.log(productList);
+
+  function renderItem(item) {
+    const template = `<div class="col">
+    <article class="product-card">
+      <div class="product-card__img-wrap">
+        <a href="./product-detail.html">
+          <img src="${item.img}" alt="" class="product-card__thumb" />
+        </a>
+        ${
+          item.like == 1
+            ? `<button class="like-btn like-btn--liked product-card__like-btn">
+          <img src="./assets/icons/heart.svg" alt="" class="like-btn__icon icon" />
+          <img src="./assets/icons/heart-red.svg" alt="" class="like-btn__icon--liked" />
+        </button>`
+            : `<button class="like-btn product-card__like-btn">
+        <img src="./assets/icons/heart.svg" alt="" class="like-btn__icon icon" />
+        <img src="./assets/icons/heart-red.svg" alt="" class="like-btn__icon--liked" />
+      </button>`
+        }
+      </div>
+      <h3 class="product-card__title">
+        <a href="./product-detail.html">${item.title}</a>
+      </h3>
+      <p class="product-card__brand">${item.brand}</p>
+      <div class="product-card__row">
+        <span class="product-card__price">${item.price}</span>
+        <img src="./assets/icons/star.svg" alt="" class="product-card__star" />
+        <span class="product-card__score">${item.rating}</span>
+      </div>
+    </article>
+  </div>`;
+    productList.insertAdjacentHTML("beforeend", template);
+  }
+
+  async function getProducts(link = endpoint) {
+    const response = await fetch(link);
+    console.log(response);
+    const data = await response.json();
+    // reset xong render lại để tránh nó lắp những cái đã có sẵn trước đó
+    productList.innerHTML = "";
+    console.log(data);
+    if (data.length > 0 && Array.isArray(data)) {
+      data.forEach((item) => renderItem(item));
+    }
+  }
+  getProducts();
+
+  // Filter
+  const filterBrand = document.querySelector(".filter__form-input");
+  function debounceFn(func, wait, immediate) {
+    let timeout;
+    return function () {
+      let context = this,
+        args = arguments;
+      let later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      let callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
+
+  filterBrand.addEventListener(
+    "keydown",
+    debounceFn(function (e) {
+      let path = endpoint;
+      if (e.target.value !== "") {
+        path = `${endpoint}?title_like=${e.target.value}`;
+      }
+      // getCourses(path);
+      getProducts(path);
+
+      // console.log(e.key;
+      // console.log(e.target.value);
+      // const response = await fetch(`${endpoint}?title_like=${e.target.value}`);
+      // const data = await response.json();
+      // console.log(data);
+    }, 500)
+  );
+});
