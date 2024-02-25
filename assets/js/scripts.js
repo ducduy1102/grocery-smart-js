@@ -359,11 +359,11 @@ window.addEventListener("load", function () {
 
   async function getProducts(link = endpoint) {
     const response = await fetch(link);
-    console.log(response);
+    // console.log(response);
     const data = await response.json();
     // reset xong render lại để tránh nó lắp những cái đã có sẵn trước đó
     productList.innerHTML = "";
-    console.log(data);
+    // console.log(data);
     if (data.length > 0 && Array.isArray(data)) {
       data.forEach((item) => renderItem(item));
     }
@@ -371,7 +371,8 @@ window.addEventListener("load", function () {
   getProducts();
 
   // Filter
-  const filterBrand = document.querySelector(".filter__form-input");
+  const filterBrand = document.querySelector(".filter-brand");
+  console.log(filterBrand);
   function debounceFn(func, wait, immediate) {
     let timeout;
     return function () {
@@ -388,21 +389,57 @@ window.addEventListener("load", function () {
     };
   }
 
+  const formTagBrand = document.querySelectorAll(".form__tag-brand");
+  formTagBrand.forEach((item) => {
+    item.addEventListener("click", function (e) {
+      const brandName = item.textContent;
+      let path = endpoint;
+      if (brandName) {
+        path = `${endpoint}?brand=${brandName}`;
+        getProducts(path);
+      }
+    });
+  });
+
+  async function getSingleCourse(id) {
+    const response = await fetch(`${endpoint}/${id}`);
+    const data = await response.json();
+    return data;
+  }
+
+  // productList.addEventListener("click", async function (e) {
+  //   if (e.target.matches(".course-remove")) {
+  //     // console.log(e.target);
+  //     const id = e.target.dataset.id; // data-id
+  //     // console.log(id);
+  //     await deleteCourse(id);
+  //     await getCourses();
+  //   } else if (e.target.matches(".course-edit")) {
+  //     const id = e.target.dataset.id; // data-id
+  //     const data = await getSingleCourse(id);
+  //     console.log(data);
+  //     // console.log(e.target);
+  //     formPost.elements["image"].value = data.image;
+  //     formPost.elements["title"].value = data.title;
+  //     formPost.elements["author"].value = data.author;
+  //     formPost.elements["rating"].value = data.rating;
+  //     formPost.elements["price"].value = data.price;
+  //     formPost.elements["bestSeller"].checked = data.bestSeller;
+  //     formPost.elements["buyAmount"].value = data.buyAmount;
+  //     formSubmit.textContent = "Update course";
+  //     updateId = id;
+  //   }
+  // });
+
   filterBrand.addEventListener(
     "keydown",
     debounceFn(function (e) {
       let path = endpoint;
       if (e.target.value !== "") {
-        path = `${endpoint}?title_like=${e.target.value}`;
+        path = `${endpoint}?brand=${e.target.value}`;
       }
-      // getCourses(path);
+      console.log(e.target.value);
       getProducts(path);
-
-      // console.log(e.key;
-      // console.log(e.target.value);
-      // const response = await fetch(`${endpoint}?title_like=${e.target.value}`);
-      // const data = await response.json();
-      // console.log(data);
     }, 500)
   );
 });
